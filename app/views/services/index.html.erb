@@ -1,0 +1,8 @@
+<h1>Service Items</h1>
+
+<% @service_items.each do |service_item| %>
+  <p><%= service_item.title %></p>
+  <p><%= service_item.subtitle %></p>
+  <p><%= service_item.body %></p>
+  <%= image_tag service_item.thumb_image %>
+<% end %>
