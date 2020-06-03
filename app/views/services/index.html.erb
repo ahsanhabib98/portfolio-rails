@@ -1,8 +1,12 @@
 <h1>Service Items</h1>
 
+<%= link_to "Create New Item", new_service_url %>
+
 <% @service_items.each do |service_item| %>
-  <p><%= service_item.title %></p>
+  <p><%= link_to service_item.title, service_path(service_item.id) %></p>
   <p><%= service_item.subtitle %></p>
   <p><%= service_item.body %></p>
   <%= image_tag service_item.thumb_image if !service_item.thumb_image.nil? %>
+  <%= link_to "Edit", edit_service_path(service_item.id) %>
+  <a href="/services/<%= service_item.id %>/edit">Edit Two</a>
 <% end %>
