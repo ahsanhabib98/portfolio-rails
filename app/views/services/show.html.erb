@@ -2,3 +2,8 @@
 <h1><%= @service_item.title %></h1>
 <em><%= @service_item.subtitle %></em>
 <p><%= @service_item.body %></p>
+
+<h2>Technologies Used:</h2>
+<% @service_item.technologies.each do |t| %>
+ <p><%= t.name %></p>
+<% end %>

@@ -5,10 +5,12 @@ class ServicesController < ApplicationController
 
   def new
     @service_item = Service.new
+    3.times { @service_item.technologies.build }
   end
 
   def create
-    @service_item = Service.new(params.require(:service).permit(:title, :subtitle, :body))
+    @service_item = Service.new(params.require(:service).permit(:title, :subtitle, :body,
+                                technologies_attributes: [:name]))
 
     respond_to do |format|
       if @service_item.save
