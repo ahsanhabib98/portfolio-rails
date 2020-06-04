@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :services, except: [:show]
   get 'service/:id', to: 'services#show', as: 'service_show'
 
