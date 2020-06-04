@@ -39,4 +39,13 @@ class ServicesController < ApplicationController
     @service_item = Service.find(params[:id])
   end
 
+  def destroy
+    @service_item = Service.find(params[:id])
+
+    @service_item.destroy
+    respond_to do |format|
+      format.html { redirect_to services_url, notice: 'Service item was successfully destroyed.' }
+    end
+  end
+
 end
