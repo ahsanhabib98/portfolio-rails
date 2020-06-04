@@ -57,3 +57,11 @@ puts "5 skills created"
 end
 
 puts "9 service items created"
+
+3.times do |technology|
+  Service.last.technologies.create!(
+    name: "Technology #{technology}"
+  )
+end
+
+puts "3 technologies created"
