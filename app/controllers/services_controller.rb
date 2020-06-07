@@ -9,8 +9,7 @@ class ServicesController < ApplicationController
   end
 
   def create
-    @service_item = Service.new(params.require(:service).permit(:title, :subtitle, :body,
-                                technologies_attributes: [:name]))
+    @service_item = Service.new(service_params)
 
     respond_to do |format|
       if @service_item.save
@@ -29,7 +28,7 @@ class ServicesController < ApplicationController
     @service_item = Service.find(params[:id])
 
     respond_to do |format|
-      if @service_item.update(params.require(:service).permit(:title, :subtitle, :body))
+      if @service_item.update(service_params)
         format.html { redirect_to services_path, notice: 'Service item was successfully updated.' }
       else
         format.html { render :edit }
@@ -50,4 +49,13 @@ class ServicesController < ApplicationController
     end
   end
 
+  private
+
+    def service_params
+      params.require(:service).permit(:title,
+                                      :subtitle,
+                                      :body,
+                                      technologies_attributes: [:name]
+                                    )
+    end
 end
