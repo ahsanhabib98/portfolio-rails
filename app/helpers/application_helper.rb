@@ -15,4 +15,17 @@ module ApplicationHelper
       content_tag(:p, greeting, class: "source-greeting")
     end
   end
+
+  def set_copyright
+    @copyright = ViewTool::Renderer.copyright 'Ahsan Habib', 'All rights reserved'
+  end
+end
+
+# Copyright generator
+module ViewTool
+  class Renderer
+    def self.copyright name, msg
+      "&copy; #{Time.now.year} | <b>#{name}</b> #{msg}".html_safe
+    end
+  end
 end
