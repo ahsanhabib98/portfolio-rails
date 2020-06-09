@@ -1,4 +1,5 @@
 class ServicesController < ApplicationController
+  before_action :set_service_item, only: [:edit, :show, :update, :destroy]
   layout "service"
 
   def index
@@ -23,12 +24,9 @@ class ServicesController < ApplicationController
   end
 
   def edit
-    @service_item = Service.find(params[:id])
   end
 
   def update
-    @service_item = Service.find(params[:id])
-
     respond_to do |format|
       if @service_item.update(service_params)
         format.html { redirect_to services_path, notice: 'Service item was successfully updated.' }
@@ -39,12 +37,9 @@ class ServicesController < ApplicationController
   end
 
   def show
-    @service_item = Service.find(params[:id])
   end
 
   def destroy
-    @service_item = Service.find(params[:id])
-
     @service_item.destroy
     respond_to do |format|
       format.html { redirect_to services_url, notice: 'Service item was successfully destroyed.' }
@@ -59,5 +54,9 @@ class ServicesController < ApplicationController
                                       :body,
                                       technologies_attributes: [:name]
                                     )
+    end
+
+    def set_service_item
+      @service_item = Service.find(params[:id])
     end
 end
