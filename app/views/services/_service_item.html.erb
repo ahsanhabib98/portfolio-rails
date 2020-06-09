@@ -2,5 +2,5 @@
 <p><%= service_item.subtitle %></p>
 <p><%= service_item.body %></p>
 <%= image_tag service_item.thumb_image if !service_item.thumb_image.nil? %>
-<%= link_to "Edit", edit_service_path(service_item.id) %>
-<%= link_to 'Delete Service Item', service_path(service_item), method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to "Edit", edit_service_path(service_item.id) if logged_in?(:site_admin) %>
+<%= link_to 'Delete Service Item', service_path(service_item), method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:site_admin) %>

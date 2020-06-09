@@ -1,6 +1,7 @@
 class ServicesController < ApplicationController
   before_action :set_service_item, only: [:edit, :show, :update, :destroy]
   layout "service"
+  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
 
   def index
     @service_items = Service.all

@@ -1,5 +1,5 @@
 <h1>Service Items</h1>
 
-<%= link_to "Create New Item", new_service_url %>
+<%= link_to "Create New Item", new_service_url if logged_in?(:site_admin) %>
 
 <%= render partial: 'service_item', collection: @service_items %>
