@@ -1,9 +1,22 @@
-<%= image_tag @service_item.main_image %>
-<h1><%= @service_item.title %></h1>
-<em><%= @service_item.subtitle %></em>
-<p><%= @service_item.body %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-7">
+      <%= image_tag @service_item.main_image %>
+    </div>
+    <div class="col-md-5">
+      <h1><%= @service_item.title %></h1>
 
-<h2>Technologies Used:</h2>
-<% @service_item.technologies.each do |t| %>
- <p><%= t.name %></p>
-<% end %>
+      <hr>
+
+      <em><%= @service_item.subtitle %></em>
+      <p><%= @service_item.body %></p>
+
+      <hr>
+
+      <h3>Technologies Used:</h3>
+      <% @service_item.technologies.each do |t| %>
+       <p><%= t.name %></p>
+      <% end %>
+    </div>
+  </div>
+</div>

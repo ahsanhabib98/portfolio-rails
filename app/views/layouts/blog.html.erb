@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <title><%= @page_title %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,13 +15,25 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
-    <%= authenticate_helper %>
-    <%= yield %>
+    <%= render "shared/blog_nav" %>
 
-    <%= render "shared/nav", location: 'bottom' %>
-    <%= source_helper("blog") %>
+    <%= render "shared/blog_masthead" %>
+
+    <!-- Start of container and row -->
+    <div class="container">
+
+      <div class="row">
+
+        <%= yield %>
+
+        <%= render "shared/blog_sidebar" %>
+      </div>
+
+      <%= render "shared/blog_footer" %>
+
+      <%= source_helper("blog") %>
+
+    </div>
   </body>
 </html>
