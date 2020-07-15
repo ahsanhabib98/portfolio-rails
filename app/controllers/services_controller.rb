@@ -4,7 +4,7 @@ class ServicesController < ApplicationController
   access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
 
   def index
-    @service_items = Service.all
+    @service_items = Service.by_position
   end
 
   def new
