@@ -1,8 +1,6 @@
-ready = undefined
+import Sortable from 'sortablejs';
 
-ready = ->
-  # $('.sortable').sortable()
-  sortable('.sortable');
-  return
-
-$(document).ready ready
+document.addEventListener('turbolinks:load', () => {
+  var el = document.getElementById('sortable-list');
+  var sortable = Sortable.create(el);
+})
