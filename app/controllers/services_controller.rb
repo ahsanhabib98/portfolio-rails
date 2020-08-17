@@ -9,7 +9,6 @@ class ServicesController < ApplicationController
 
   def new
     @service_item = Service.new
-    3.times { @service_item.technologies.build }
   end
 
   def create
@@ -53,7 +52,9 @@ class ServicesController < ApplicationController
       params.require(:service).permit(:title,
                                       :subtitle,
                                       :body,
-                                      technologies_attributes: [:name]
+                                      :main_image,
+                                      :thumb_image,
+                                      technologies_attributes: [:id, :name, :_destroy]
                                     )
     end
 

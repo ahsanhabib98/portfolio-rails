@@ -18,6 +18,7 @@ require("jquery")
 
 import './bootstrap_custom.js'
 import './services.coffee'
+import 'cocoon-js'
 
 // document.addEventListener('turbolinks:load', () => {
 //   var el = document.getElementById('sortable-list');

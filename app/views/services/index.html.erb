@@ -1,7 +1,7 @@
 <div class="album text-muted">
     <div class="container">
         <div class="row">
-          <div id="sortable-list"><!-- Sortable -->
+          <div id="<%= "sortable-list" if logged_in?(:site_admin) %>"><!-- Sortable -->
             <%= render partial: 'service_item', collection: @service_items %>
           </div>
         </div>

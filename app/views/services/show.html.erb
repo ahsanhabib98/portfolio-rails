@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container service-container">
   <div class="row">
     <div class="col-md-7">
-      <%= image_tag @service_item.main_image %>
+      <%= image_tag service_img(@service_item.main_image.url, 'main'), width: '100%' %>
     </div>
     <div class="col-md-5">
       <h1><%= @service_item.title %></h1>
@@ -16,6 +16,12 @@
       <h3>Technologies Used:</h3>
       <% @service_item.technologies.each do |t| %>
        <p><%= t.name %></p>
+      <% end %>
+
+      <% if logged_in?(:site_admin) %>
+        <div>
+          <%= link_to "Edit Item", edit_service_path(@service_item), class: 'btn btn-warning' %>
+        </div>
       <% end %>
     </div>
   </div>

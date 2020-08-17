@@ -10,6 +10,18 @@
         <%= form.label :subtitle %>
         <%= form.text_field :subtitle, class: 'form-control' %>
       </div>
+
+      <div class="form-group">
+        <label class="btn btn-primary">
+          Upload a main image file <%= form.file_field :main_image, style: 'display: none;' %>
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label class="btn btn-primary">
+          Upload a thumb image file <%= form.file_field :thumb_image, style: 'display: none;' %>
+        </label>
+      </div>
     </div>
     <div class="col-md-6">
       <div class="form-group">
@@ -24,11 +36,11 @@
     <h2>Technologies Used:</h2>
     <div>
       <%= form.fields_for :technologies do |technology_form| %>
-        <div class="form-group">
-          <%= technology_form.label :name %>
-          <%= technology_form.text_field :name, class: 'form-control' %>
-        </div>
+        <%= render 'technology_fields', f: technology_form %>
       <% end %>
+      <div>
+        <%= link_to_add_association 'Add Technology', form, :technologies %>
+      </div>
     </div>
 
     <div class="form-group">

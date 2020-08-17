@@ -1,5 +1,5 @@
-<div class="card">
-  <%= image_tag service_item.thumb_image if !service_item.thumb_image.nil? %>
+<div class="card" data-id="<%= service_item.id %>">
+  <%= image_tag service_img(service_item.thumb_image.url, 'thumb') %>
   <p class="card-text">
     <span><%= link_to service_item.title, service_show_path(service_item.id) %></span>
     <%= service_item.subtitle %>
